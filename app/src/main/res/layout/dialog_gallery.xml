@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  Copyright (c) TravelBird, 2016
+  All rights reserved
+  -->
+<FrameLayout android:id="@+id/slideshow_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:filterTouchesWhenObscured="true"
+    android:orientation="vertical">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/photo_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical" />
+</FrameLayout>

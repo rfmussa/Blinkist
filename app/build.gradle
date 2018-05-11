@@ -1,0 +1,68 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+
+android {
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "renato.com.androidsampleproject"
+        minSdkVersion 21
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+// IMPORTANT!  Enables view caching in viewholders.
+// See: https://github.com/Kotlin/KEEP/blob/master/proposals/android-extensions-entity-caching.md
+androidExtensions {
+    experimental = true
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation Deps.design
+    implementation Deps.cardviewv7
+    implementation Deps.constraintLayout
+    implementation Deps.kotlinStdlib
+    implementation Deps.okhttp
+    implementation Deps.adapterRxjava2
+    implementation Deps.converterMoshi
+    implementation Deps.moshiAdapters
+    implementation Deps.moshiKotlin
+    implementation Deps.retrofit
+    implementation Deps.rxAndroid
+    implementation Deps.rxJava
+    implementation Deps.rxKotlin
+    implementation Deps.dagger
+    implementation Deps.daggerAndroid
+    implementation Deps.daggerAndroidSupport
+    implementation Deps.mockwebserver
+    implementation Deps.groupie
+    implementation Deps.groupieExtensions
+    implementation Deps.room
+    implementation Deps.roomRxJava
+
+    kapt Deps.daggerCompiler
+    kapt Deps.daggerAndroidProcessor
+    kapt Deps.roomAnnotationProcessor
+
+    annotationProcessor Deps.roomAnnotationProcessor
+
+    testImplementation Deps.mockwebserver
+    testImplementation Deps.mockitoInline
+    testImplementation Deps.mockitoKotlin
+}
